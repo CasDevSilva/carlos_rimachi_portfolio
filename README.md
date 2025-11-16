@@ -1,153 +1,226 @@
-# Portfolio - Diseñador de Interiores
+# Portfolio - Carlos Rimachi Silva
 
-Portfolio minimalista de una sola página para showcasear proyectos de diseño de interiores y modelado 3D.
+Portfolio personal minimalista showcaseando proyectos, experiencia y certificaciones como Ingeniero de Software y Desarrollador Fullstack.
 
-## Características
+## 🚀 Demo
 
-- **Diseño minimalista** - Single page scroll
-- **Grid de proyectos** - Inspirado en nick.computer/works
-- **Información objetiva** - Secciones claras y directas
-- **Responsive** - Mobile first
+[Ver portfolio en vivo](#) ← Actualiza con tu URL de Vercel/Netlify
 
-## Stack Tecnológico
+## ✨ Features
 
-- React 18
-- Vite
-- Tailwind CSS
-- Framer Motion (animaciones)
-- Lucide Icons
+- **Diseño minimalista** - Single page scroll con diseño limpio y profesional
+- **Totalmente responsive** - Mobile-first approach
+- **Animaciones fluidas** - Implementadas con Framer Motion
+- **Grid dinámico de proyectos** - Showcaseando MVPs y herramientas npm
+- **Timeline de experiencia** - Visualización clara de trayectoria profesional
+- **Sistema de certificaciones** - Diferenciación visual entre obtenidas y en progreso
+- **Modal interactivo** - Para visualizar detalles de proyectos
+- **SEO optimizado** - Meta tags y estructura semántica
 
-## Estructura
+## 🛠️ Stack Tecnológico
+
+- **Framework:** React 18 + Vite
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+
+## 📁 Estructura del Proyecto
 
 ```
 src/
 ├── components/
-│   ├── Hero.jsx          # Intro + nombre + título
-│   ├── About.jsx         # Info básica + skills
-│   ├── Projects.jsx      # Grid de trabajos/renders
-│   ├── ProjectView.jsx   # Modal para ver proyecto completo
-│   └── Contact.jsx       # Enlaces de contacto
+│   ├── Hero.jsx              # Sección principal con intro
+│   ├── ProjectGrid.jsx       # Componente reutilizable para grids
+│   ├── Viewer.jsx            # Modal para detalles de proyectos
+│   ├── Certifications.jsx    # Grid de certificaciones
+│   ├── Experience.jsx        # Timeline de experiencia laboral
+│   ├── About.jsx             # Información personal
+│   ├── Skills.jsx            # Stack técnico
+│   └── Footer.jsx            # Contacto y enlaces
 ├── data/
-│   └── portfolio.js      # Data de proyectos (separada del código)
-└── App.jsx               # Componente principal
+│   └── portfolio.js          # Toda la data del portfolio
+├── App.jsx                   # Componente raíz
+└── main.jsx                  # Entry point
 ```
 
-## Instalación
+## 🎨 Componentes Principales
+
+### ProjectGrid (DRY Implementation)
+Componente reutilizable que renderiza tanto aplicaciones como herramientas:
+
+```jsx
+<ProjectGrid 
+  title="Aplicaciones" 
+  projects={projects_data.mvps} 
+  columns="lg:grid-cols-4" 
+/>
+```
+
+### Certifications
+Sistema visual que diferencia certificaciones obtenidas (verde) vs en progreso (gris):
+- Iconos dinámicos (CheckCircle / Clock)
+- Links externos a credenciales de Microsoft
+- Grid responsive de 2 columnas
+
+### Experience Timeline
+Timeline vertical con:
+- Línea de tiempo animada
+- Puntos interactivos por posición
+- Descripción detallada de logros y responsabilidades
+
+## 📦 Instalación
 
 ```bash
-# Clonar el repositorio
-git clone [url-del-repo]
+# Clonar repositorio
+git clone https://github.com/tu-usuario/tu-portfolio.git
+cd tu-portfolio
 
 # Instalar dependencias
 npm install
 
-# Correr en desarrollo
+# Ejecutar en desarrollo
 npm run dev
 
 # Build para producción
 npm run build
+
+# Preview del build
+npm run preview
 ```
 
-## Configuración
+## ⚙️ Configuración
 
-### Agregar Proyectos
+### 1. Actualizar Información Personal
 
 Edita `src/data/portfolio.js`:
 
 ```javascript
-export const projectsData = [
+export const personal_info = {
+  name: "Tu Nombre",
+  title: "Tu Título Profesional",
+  bio: "Tu descripción...",
+  // ...
+}
+```
+
+### 2. Agregar Proyectos
+
+```javascript
+export const projects_data = {
+  mvps: [
+    {
+      id: 1,
+      title: "Nombre del Proyecto",
+      poster: "/path/to/image.jpg",
+      description: "Descripción del proyecto",
+      tech: ["React", "Node.js", "PostgreSQL"],
+      links: {
+        github: "url",
+        demo: "url"
+      }
+    }
+  ],
+  tools: [/* similar structure */]
+}
+```
+
+### 3. Actualizar Certificaciones
+
+```javascript
+export const certifications_data = [
   {
     id: 1,
-    title: "Nombre del Proyecto",
-    category: "Residencial / Cocinas / Oficinas",
-    image: "/assets/projects/proyecto1.jpg",
-    color: "bg-amber-50", // Color de fondo del card
-    description: "Descripción breve",
-    renders: [
-      "/assets/renders/render1.jpg",
-      "/assets/renders/render2.jpg"
-    ]
+    name: "Nombre de la Certificación",
+    credential: "URL_de_credencial" // o "#" si está en progreso
   }
 ]
 ```
 
-### Assets
-
-Coloca imágenes en:
-- `/public/assets/projects/` - Thumbnails de proyectos
-- `/public/assets/renders/` - Renders completos
-- `/public/assets/videos/` - Videos de recorridos 3D
-
-## Deployment
+## 🚀 Deployment
 
 ### Vercel (Recomendado)
 
-```bash
-# Instalar Vercel CLI
-npm i -g vercel
+1. Conecta tu repositorio de GitHub a Vercel
+2. Framework Preset: Vite
+3. Build Command: `npm run build`
+4. Output Directory: `dist`
+5. Deploy 🎉
 
-# Deploy
+O usando CLI:
+
+```bash
+npm i -g vercel
 vercel --prod
 ```
 
 ### Netlify
 
 ```bash
-# Build command
-npm run build
-
-# Publish directory
-dist
+# Build settings
+Build command: npm run build
+Publish directory: dist
 ```
 
-## Personalización
+## 🎯 Personalización
 
 ### Colores
 
-Los colores principales están en Tailwind config. Para cambiar paleta, edita `tailwind.config.js` o usa clases directamente:
+Actualiza `tailwind.config.js` para cambiar la paleta de colores:
 
-```jsx
-bg-neutral-900  // Fondo oscuro
-bg-neutral-800  // Cards oscuros
-text-neutral-400  // Texto secundario
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#your-color',
+        // ...
+      }
+    }
+  }
+}
 ```
 
 ### Tipografía
 
-Por defecto usa Inter. Para cambiar:
+Las fuentes se configuran en `index.html` y `tailwind.config.js`.
 
-1. Importa fuente en `index.html`
-2. Actualiza `tailwind.config.js` en `fontFamily`
+Por defecto usa:
+- **Títulos:** Inter Bold
+- **Contenido:** Inter Regular
 
-## Contenido a Preparar
+## 📊 SEO
 
-- [ ] Bio breve (2-3 líneas)
-- [ ] Lista de habilidades técnicas
-- [ ] Mínimo 6 proyectos con:
-  - Thumbnail principal
-  - 3-5 renders adicionales
-  - Categoría
-  - Descripción corta
-- [ ] Links de contacto (email, LinkedIn, Behance, etc.)
+Actualiza meta tags en `index.html`:
 
-## Scripts
-
-```bash
-npm run dev      # Servidor desarrollo
-npm run build    # Build producción
-npm run preview  # Preview del build
+```html
+<title>Carlos Rimachi Silva - Ingeniero de Software</title>
+<meta name="description" content="Portfolio de Ingeniero de Software...">
+<meta property="og:title" content="Tu nombre">
+<meta property="og:description" content="Tu descripción">
 ```
 
-## Performance
+## 🔧 Scripts Disponibles
 
-- Lazy loading de imágenes
-- Optimización con Vite
-- Código minificado en producción
+```bash
+npm run dev        # Servidor de desarrollo
+npm run build      # Build de producción
+npm run preview    # Preview del build
+npm run lint       # Linter
+```
 
-## Licencia
+## 📄 Licencia
 
-MIT
+MIT License - Siéntete libre de usar este código para tu propio portfolio.
+
+## 🤝 Contacto
+
+- **Email:** [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+- **LinkedIn:** [Tu Perfil](https://linkedin.com/in/tu-perfil)
+- **GitHub:** [Tu Usuario](https://github.com/tu-usuario)
 
 ---
 
-**Desarrollado para showcasear trabajo de diseño de interiores y modelado 3D**
+**Desarrollado con 💚 por Carlos Rimachi Silva**
+
+*Portfolio diseñado para showcasear experiencia en desarrollo fullstack, proyectos indie y certificaciones Microsoft Azure.*
