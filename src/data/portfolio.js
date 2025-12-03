@@ -196,7 +196,7 @@ export const experience_data = [
     {
         id: 1,
         position: "Ingeniero de Software y Desarrollador Fullstack",
-        time: "Enero 2024 - Actualidad",
+        time: "Enero 2024 - Diciembre 2025",
         description: [
             {
                 point: "Arquitectura de Software, Desarrollo End-to-End, Lógica de Negocio, Dominio de SQL/BBDD.",
