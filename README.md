@@ -50,10 +50,10 @@ src/
 Componente reutilizable que renderiza tanto aplicaciones como herramientas:
 
 ```jsx
-<ProjectGrid 
-  title="Aplicaciones" 
-  projects={projects_data.mvps} 
-  columns="lg:grid-cols-4" 
+<ProjectGrid
+  title="Aplicaciones"
+  projects={projects_data.mvps}
+  columns="lg:grid-cols-4"
 />
 ```
 
@@ -215,9 +215,9 @@ MIT License - Siéntete libre de usar este código para tu propio portfolio.
 
 ## 🤝 Contacto
 
-- **Email:** [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-- **LinkedIn:** [Tu Perfil](https://linkedin.com/in/tu-perfil)
-- **GitHub:** [Tu Usuario](https://github.com/tu-usuario)
+- **Email:** [sca.dev.silva@gmail.com](mailto:sca.dev.silva@gmail.com)
+- **LinkedIn:** [Carlos Rimachi Silva](https://www.linkedin.com/in/carlos-alberto-rimachi-silva-365839258/)
+- **GitHub:** [CasDevSilva](https://github.com/CasDevSilva)
 
 ---
 
