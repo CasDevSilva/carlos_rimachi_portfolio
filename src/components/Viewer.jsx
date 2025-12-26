@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useEffect } from 'react'
+import { X, ChevronLeft, ChevronRight, ExternalLink, Github, Server, Check, Package } from 'lucide-react'
 
 const Viewer = ({ project, onClose }) => {
     const [selectedImage, setSelectedImage] = useState(null)
@@ -50,7 +49,7 @@ const Viewer = ({ project, onClose }) => {
         }
         window.addEventListener('keydown', handleArrows)
         return () => window.removeEventListener('keydown', handleArrows)
-    }, [selectedImage, selectedIndex]);
+    }, [selectedImage, selectedIndex])
 
     return (
         <>
@@ -84,12 +83,67 @@ const Viewer = ({ project, onClose }) => {
                             <h1 className="font-title text-3xl md:text-4xl lg:text-5xl text-white mb-3 md:mb-4">
                                 {project.title}
                             </h1>
-                            <div className="flex gap-3 md:gap-4 lg:gap-6 text-sm md:text-base text-neutral-400 mb-6 md:mb-8">
+                            <div className="flex flex-wrap gap-3 md:gap-4 lg:gap-6 text-sm md:text-base text-neutral-400 mb-6 md:mb-8">
                                 <span>{project.category}</span>
                                 <span>•</span>
                                 <span>{project.year}</span>
                             </div>
                         </motion.div>
+
+                        {/* Links (si existen) */}
+                        {project.links && (
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.15 }}
+                                className="flex flex-wrap gap-3 mb-6 md:mb-8"
+                            >
+                                {project.links.live && (
+                                    <a
+                                        href={project.links.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg text-sm font-medium hover:bg-neutral-200 transition"
+                                    >
+                                        <ExternalLink className="w-4 h-4" />
+                                        Live Demo
+                                    </a>
+                                )}
+                                {project.links.npm && (
+                                    <a
+                                        href={project.links.npm}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition"
+                                    >
+                                        <Package className="w-4 h-4" />
+                                        NPM
+                                    </a>
+                                )}
+                                {project.links.github && (
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 text-white rounded-lg text-sm font-medium hover:bg-neutral-700 transition border border-neutral-700"
+                                    >
+                                        <Github className="w-4 h-4" />
+                                        GitHub
+                                    </a>
+                                )}
+                                {project.links.api && (
+                                    <a
+                                        href={project.links.api}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 text-white rounded-lg text-sm font-medium hover:bg-neutral-700 transition border border-neutral-700"
+                                    >
+                                        <Server className="w-4 h-4" />
+                                        API
+                                    </a>
+                                )}
+                            </motion.div>
+                        )}
 
                         {/* Descripción */}
                         <motion.p
@@ -101,37 +155,76 @@ const Viewer = ({ project, onClose }) => {
                             {project.description}
                         </motion.p>
 
+                        {/* Features (si existen) */}
+                        {project.features && project.features.length > 0 && (
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.25 }}
+                                className="mb-6 md:mb-8"
+                            >
+                                <h3 className="text-white text-sm md:text-base font-semibold mb-3">
+                                    Features
+                                </h3>
+                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    {project.features.map((feature, i) => (
+                                        <li
+                                            key={i}
+                                            className="flex items-start gap-2 text-neutral-400 text-sm"
+                                        >
+                                            <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        )}
+
                         {/* Tools */}
                         <motion.div
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-10 lg:mb-12"
+                            className="mb-8 md:mb-10 lg:mb-12"
                         >
-                            {project.tools.map((tool, i) => (
-                                <span key={i} className="px-3 py-1.5 md:px-4 md:py-2 bg-neutral-800 text-white rounded-full text-xs md:text-sm">
-                                    {tool}
-                                </span>
-                            ))}
+                            <h3 className="text-white text-sm md:text-base font-semibold mb-3">
+                                Tech Stack
+                            </h3>
+                            <div className="flex flex-wrap gap-2 md:gap-3">
+                                {project.tools.map((tool, i) => (
+                                    <span
+                                        key={i}
+                                        className="px-3 py-1.5 md:px-4 md:py-2 bg-neutral-800 text-white rounded-full text-xs md:text-sm"
+                                    >
+                                        {tool}
+                                    </span>
+                                ))}
+                            </div>
                         </motion.div>
 
                         {/* Galería de imágenes */}
-                        <motion.div
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6"
-                        >
-                            {project.images.map((image, i) => (
-                                <img
-                                    key={i}
-                                    src={image}
-                                    alt={`${project.title} - ${i + 1}`}
-                                    className="w-full rounded-lg cursor-pointer hover:opacity-80 transition"
-                                    onClick={() => handleImageClick(image, i)}
-                                />
-                            ))}
-                        </motion.div>
+                        {project.images && project.images.length > 0 && (
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <h3 className="text-white text-sm md:text-base font-semibold mb-3">
+                                    Screenshots
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                                    {project.images.map((image, i) => (
+                                        <img
+                                            key={i}
+                                            src={image}
+                                            alt={`${project.title} - ${i + 1}`}
+                                            className="w-full rounded-lg cursor-pointer hover:opacity-80 transition"
+                                            onClick={() => handleImageClick(image, i)}
+                                        />
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
 
                         {/* Video (opcional) */}
                         {project.video && (
@@ -139,14 +232,19 @@ const Viewer = ({ project, onClose }) => {
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.5 }}
-                                className="mt-4 md:mt-5 lg:mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6"
+                                className="mt-6 md:mt-8"
                             >
-                                <video
-                                    controls
-                                    className="w-full rounded-lg"
-                                >
-                                    <source src={project.video} type="video/mp4" />
-                                </video>
+                                <h3 className="text-white text-sm md:text-base font-semibold mb-3">
+                                    Demo Video
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                                    <video
+                                        controls
+                                        className="w-full rounded-lg"
+                                    >
+                                        <source src={project.video} type="video/mp4" />
+                                    </video>
+                                </div>
                             </motion.div>
                         )}
                     </div>

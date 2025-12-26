@@ -45,139 +45,96 @@ export const projects_data = {
     tools: [
         {
             id: 1,
-            title: "apiguard",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Residencial",
-            year: "2024",
-            description: "Diseño de residencia moderna con enfoque en iluminación natural y espacios abiertos. Proyecto completo desde concepto hasta renders finales.",
-            tools: ["3DS Max", "V-Ray", "Photoshop"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png",
-                "/assets/projects/project_1.jpg"
+            title: "passforgejs",
+            poster: "/assets/projects/passforge/passforge.png",
+            category: "CLI Tool",
+            year: "2025",
+            description: "Generador de contraseñas seguro y personalizable desde línea de comandos. Permite configurar longitud (1-40 chars), tipos de caracteres (mayúsculas, minúsculas, números, símbolos), cantidad de contraseñas a generar y copia automática al portapapeles. Publicado en NPM con arquitectura modular.",
+            tools: [
+                "Node.js",
+                "Commander.js",
+                "Randexp",
+                "copy-paste",
+                "kleur"
             ],
-            video: "/assets/projects/project_1.mp4" // opcional
+            features: [
+                "Longitud configurable (1-40 caracteres)",
+                "Control granular: mayúsculas, minúsculas, números, símbolos",
+                "Generación múltiple (hasta 25 contraseñas)",
+                "Copia automática al portapapeles con --copy",
+                "Validación de parámetros con mensajes de error claros",
+                "Output colorizado en terminal",
+                "Arquitectura modular (commands/utils)"
+            ],
+            images: [
+                "/assets/projects/passforge/passforge.png"
+            ],
+            links: {
+                npm: "https://www.npmjs.com/package/passforgejs",
+                github: "https://github.com/CasDevSilva/passforge.git"
+            }
         },
         {
             id: 2,
-            title: "devflow",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 3,
-            title: "agatjs",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 4,
-            title: "qwicktool",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 5,
-            title: "passforgejs",
-            poster: "/assets/projects/passforge.png",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 6,
             title: "chronoxjs",
-            poster: "/assets/projects/chronox.png",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
+            poster: "/assets/projects/chronox/chronox.png",
+            category: "CLI Tool",
+            year: "2025",
+            description: "CLI de productividad para desarrolladores que permite trackear tiempo por proyecto, calcular costos por hora, generar reportes visuales en consola y exportar datos a Excel (.xlsx). Almacenamiento local con SQLite, sin dependencia de internet. Ideal para freelancers y equipos pequeños.",
+            tools: [
+                "Node.js",
+                "better-sqlite3",
+                "cli-table3",
+                "ExcelJS",
+                "chalk",
+                "Day.js"
+            ],
+            features: [
+                "Gestión de proyectos con alias cortos",
+                "Tracking automático de duración de sesiones",
+                "Configuración de tarifa por hora por proyecto",
+                "Reportes visuales en consola con cli-table3",
+                "Exportación a Excel (.xlsx) con dos hojas",
+                "Almacenamiento local SQLite (offline-first)",
+                "10 comandos CLI: init, add, close, list, start, stop, sessions, set-rate, report, export"
+            ],
             images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
+                "/assets/projects/chronox/chronox.png"
+            ],
+            links: {
+                npm: "https://www.npmjs.com/package/chronoxjs",
+                github: "https://github.com/CasDevSilva/chronox.git"
+            }
         }
     ],
     mvps: [
         {
             id: 1,
-            title: "FileVault",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Residencial",
-            year: "2024",
-            description: "Diseño de residencia moderna con enfoque en iluminación natural y espacios abiertos. Proyecto completo desde concepto hasta renders finales.",
-            tools: ["3DS Max", "V-Ray", "Photoshop"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png",
-                "/assets/projects/project_1.jpg"
+            title: "CodeSnap",
+            poster: "/assets/projects/codesnap/codesnap.png",
+            category: "Developer Tool",
+            year: "2025",
+            description: "Aplicación web fullstack que transforma fragmentos de código en imágenes estilizadas y compartibles. Permite personalizar temas de sintaxis, fuentes, colores y efectos de sombra. Genera URLs públicas con expiración automática de 1 hora.",
+            tools: ["React 19", "Vite", "TailwindCSS", "Prism.js", "html2canvas", "Express.js", "MongoDB", "Mongoose"],
+            features: [
+                "Preview en tiempo real con syntax highlighting",
+                "8 temas de color + 3 fuentes personalizables",
+                "Generación de imagen PNG con html2canvas",
+                "URLs compartibles con TTL de 1 hora",
+                "Historial local (últimos 5 snippets)",
+                "Rate limiting (20 req/15 min)",
+                "Diseño responsive mobile-first"
             ],
-            video: "/assets/projects/project_1.mp4" // opcional
-        },
-        {
-            id: 2,
-            title: "Kore",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
             images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 3,
-            title: "DataViz",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
-        },
-        {
-            id: 4,
-            title: "LinkHub",
-            poster: "/assets/projects/project_1.jpg",
-            category: "Comercial",
-            year: "2024",
-            description: "Restaurante contemporáneo con identidad industrial-moderna.",
-            tools: ["SketchUp", "Corona", "AutoCAD"],
-            images: [
-                "/assets/projects/project_1.jpg",
-                "/assets/projects/project_2.png"
-            ]
+                "/assets/projects/codesnap/codesnap_main.png",
+                "/assets/projects/codesnap/codesnap_modal.png",
+                "/assets/projects/codesnap/codesnap_share.png"
+            ],
+            links: {
+                live: "https://codesnap-frontend.vercel.app",
+                github: "https://github.com/CasDevSilva/codesnap_frontend.git",
+                api: "https://codesnap-api.onrender.com"
+            }
         },
     ]
 }
@@ -189,6 +146,13 @@ export const education_data = [
         college: "Cibertec",
         time: "2019 - 2021",
         status: "Egresado"
+    },
+    {
+        id: 2,
+        specialization: "Ingeniería de Software",
+        college: "Universidad Tecnológica del Perú [UTP]",
+        time: "2024",
+        status: "Convalidando"
     }
 ]
 
