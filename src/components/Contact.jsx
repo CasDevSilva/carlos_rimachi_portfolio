@@ -13,6 +13,7 @@ const Contact = () => {
             <motion.a
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
+                target="_blank"
                 href='https://www.linkedin.com/in/carlos-alberto-rimachi-silva-365839258/'
             >
                 <Linkedin
@@ -22,6 +23,7 @@ const Contact = () => {
             <motion.a
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
+                target="_blank"
                 href='https://github.com/CasDevSilva'
             >
                 <Github
