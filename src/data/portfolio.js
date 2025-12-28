@@ -105,6 +105,70 @@ export const projects_data = {
                 npm: "https://www.npmjs.com/package/chronoxjs",
                 github: "https://github.com/CasDevSilva/chronox.git"
             }
+        },
+        {
+            id: 3,
+            title: "qr-forge",
+            poster: "/assets/projects/qr-forge/qr-forge.png",
+            category: "CLI Tool",
+            year: "2025",
+            description: "Generador de códigos QR desde línea de comandos con colores personalizables, incrustación de logos, procesamiento batch y múltiples formatos de salida. Soporta PNG, SVG, HTML embed e IMG tag con preview en terminal.",
+            tools: [
+                "Node.js",
+                "Commander.js",
+                "QRCode",
+                "Sharp",
+                "Chalk",
+                "Figures"
+            ],
+            features: [
+                "Colores QR y fondo configurables (hex #RGB, #RRGGBB, #RRGGBBAA)",
+                "Incrustación de logo con tamaño ajustable (5-40%)",
+                "Procesamiento batch desde archivo de texto",
+                "Formatos: PNG, SVG, HTML embed, IMG tag base64",
+                "Preview en terminal antes de guardar",
+                "Nivel de corrección de errores automático (H con logo)",
+                "Directorio de exportación por defecto (~/.qr-forge/exports/)"
+            ],
+            images: [
+                "/assets/projects/qr-forge/qr-forge.png"
+            ],
+            links: {
+                npm: "https://www.npmjs.com/package/qr-forge",
+                github: "https://github.com/CasDevSilva/qr-forge.git"
+            }
+        },
+        {
+            id: 4,
+            title: "placeholdjs",
+            poster: "/assets/projects/placehold/placehold.png",
+            category: "CLI Tool",
+            year: "2025",
+            description: "Generador offline de imágenes placeholder desde línea de comandos. Crea placeholders con dimensiones, colores y texto personalizables. Soporta batch processing y múltiples formatos sin dependencia de servicios externos.",
+            tools: [
+                "Node.js",
+                "Commander.js",
+                "Sharp",
+                "Chalk",
+                "Figures"
+            ],
+            features: [
+                "Dimensiones personalizables (WIDTHxHEIGHT, máx 10000px)",
+                "Colores de fondo y texto configurables (hex)",
+                "Texto personalizado o auto-display de dimensiones",
+                "Font size automático o manual (1-200px)",
+                "Procesamiento batch (hasta 1000 imágenes)",
+                "Formatos: PNG, JPG, WebP",
+                "Opción de borde integrada",
+                "100% offline, sin rate limits"
+            ],
+            images: [
+                "/assets/projects/placehold/placehold.png"
+            ],
+            links: {
+                npm: "https://www.npmjs.com/package/placeholdjs",
+                github: "https://github.com/CasDevSilva/placehold.git"
+            }
         }
     ],
     mvps: [
