@@ -4,7 +4,7 @@ Portfolio personal minimalista showcaseando proyectos, experiencia y certificaci
 
 ## 🚀 Demo
 
-[Ver portfolio en vivo](#) ← Actualiza con tu URL de Vercel/Netlify
+[Ver portfolio en vivo](https://carlosrimachi.netlify.app/)
 
 ## ✨ Features
 
