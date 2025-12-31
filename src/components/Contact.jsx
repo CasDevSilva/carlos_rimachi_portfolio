@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Award, FileUser, Github, Linkedin, Mail, X, Copy, Check } from 'lucide-react'
+import { Award, FileUser, Github, Linkedin, Mail, X, Copy, Check, QrCode } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { email_data } from '../data/portfolio'
 
 const Contact = () => {
     const [showEmailPopup, setShowEmailPopup] = useState(false)
+    const [showQRPopup, setShowQRPopup] = useState(false)
     const [copied, setCopied] = useState(false)
 
     const handleCopyEmail = () => {
@@ -15,7 +16,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className='flex flex-row gap-4 md:gap-5 lg:gap-6'>
+            <div className='flex flex-row gap-4 md:gap-5 lg:gap-6 items-center'>
                 <motion.button
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.2 }}
@@ -46,16 +47,39 @@ const Contact = () => {
                 >
                     <FileUser className="w-6 h-6 md:w-7 md:h-7 hover:text-neutral-400 transition" />
                 </motion.a>
+
+                {/* Carta de Recomendación - DESTACADA */}
                 <motion.a
-                    whileHover={{ y: -4 }}
+                    whileHover={{ y: -4, scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                     href='/assets/docs/Carta_recomendacion_CarlosRimachi.pdf'
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="relative group"
                     title="Carta de Recomendación"
                 >
-                    <Award className="w-6 h-6 md:w-7 md:h-7 hover:text-yellow-400 transition" />
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md group-hover:bg-yellow-400/40 transition-all" />
+
+                    {/* Icono con ring */}
+                    <div className="relative p-1.5 rounded-full ring-2 ring-yellow-500/50 group-hover:ring-yellow-400 transition-all">
+                        <Award className="w-6 h-6 md:w-7 md:h-7 text-yellow-400 group-hover:text-yellow-300 transition" />
+                    </div>
                 </motion.a>
+
+                {/* Separador visual */}
+                <div className="h-6 w-px bg-neutral-700 mx-1" />
+
+                {/* QR GitHub */}
+                <motion.button
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={() => setShowQRPopup(true)}
+                    className="relative group"
+                    title="QR GitHub (hecho con qr-forge)"
+                >
+                    <QrCode className="w-6 h-6 md:w-7 md:h-7 hover:text-neutral-400 transition cursor-pointer" />
+                </motion.button>
             </div>
 
             {/* Email Popup */}
@@ -75,7 +99,6 @@ const Contact = () => {
                             className="bg-neutral-900 border border-neutral-700 rounded-xl p-6 md:p-8 max-w-md w-full relative"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Botón cerrar */}
                             <button
                                 onClick={() => setShowEmailPopup(false)}
                                 className="absolute top-4 right-4 text-neutral-400 hover:text-white transition"
@@ -83,14 +106,12 @@ const Contact = () => {
                                 <X className="w-5 h-5" />
                             </button>
 
-                            {/* Contenido */}
                             <div className="flex flex-col items-center gap-4">
                                 <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center">
                                     <Mail className="w-6 h-6 text-white" />
                                 </div>
                                 <h3 className="font-title text-lg text-white">Contáctame</h3>
 
-                                {/* Email con botón copiar */}
                                 <div className="flex items-center gap-2 bg-neutral-800 rounded-lg px-4 py-3 w-full">
                                     <span className="text-neutral-300 text-sm md:text-base flex-1 text-center">
                                         {email_data}
@@ -108,12 +129,79 @@ const Contact = () => {
                                     </button>
                                 </div>
 
-                                {/* Botón enviar email */}
                                 <a
                                     href={`mailto:${email_data}`}
                                     className="w-full bg-white text-black font-medium py-2.5 rounded-lg text-center text-sm hover:bg-neutral-200 transition"
                                 >
                                     Enviar email
+                                </a>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* QR Popup */}
+            <AnimatePresence>
+                {showQRPopup && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+                        onClick={() => setShowQRPopup(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="bg-neutral-900 border border-neutral-700 rounded-xl p-6 md:p-8 max-w-sm w-full relative"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                onClick={() => setShowQRPopup(false)}
+                                className="absolute top-4 right-4 text-neutral-400 hover:text-white transition"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center">
+                                    <Github className="w-6 h-6 text-white" />
+                                </div>
+                                <h3 className="font-title text-lg text-white">Mi GitHub</h3>
+                                <p className="text-neutral-400 text-xs text-center">Escanea para visitar mi perfil</p>
+
+                                {/* QR Image */}
+                                <div className="bg-white p-3 rounded-xl">
+                                    <img
+                                        src="/assets/github_qr.png"
+                                        alt="GitHub QR Code"
+                                        className="w-48 h-48 md:w-56 md:h-56"
+                                    />
+                                </div>
+
+                                {/* Hecho con qr-forge */}
+                                <p className="text-neutral-500 text-xs flex items-center gap-1">
+                                    Generado con
+                                    <a
+                                        href="https://www.npmjs.com/package/qr-forge"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-neutral-400 hover:text-white underline"
+                                    >
+                                        qr-forge
+                                    </a>
+                                </p>
+
+                                <a
+                                    href="https://github.com/CasDevSilva"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full bg-neutral-800 text-white font-medium py-2.5 rounded-lg text-center text-sm hover:bg-neutral-700 transition flex items-center justify-center gap-2"
+                                >
+                                    <Github className="w-4 h-4" />
+                                    Ir al perfil
                                 </a>
                             </div>
                         </motion.div>
