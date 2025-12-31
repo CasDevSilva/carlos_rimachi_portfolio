@@ -1,4 +1,5 @@
 export const name_data = "Carlos Rimachi Silva"
+export const email_data = "sca.dev.silva@gmail.com"
 export const about_data = {
     intro: "Ingeniero de Software (Analista Programador) versátil. Especializado en el desarrollo de soluciones críticas y de alto impacto, impulsando la eficiencia del código con visión Cloud y apoyo de IA.",
     bio: [
@@ -275,24 +276,24 @@ export const certifications_data = [
         name: "Data Fundamentals (DP-900)",
         credential: "https://learn.microsoft.com/api/credentials/share/es-es/CarlosAlbertoRimachiSilva-1159/4F09E4207AEBCC21?sharingId=F4E1307CF6252DC3"
     },
-    {
-        id: 3,
-        name: "Security Fundamentals (SC-900)",
-        credential: "#"
-    },
-    {
-        id: 4,
-        name: "Azure Developer Associate (AZ-204)",
-        credential: "#"
-    },
-    {
-        id: 5,
-        name: "Devops Designer (AZ-400)",
-        credential: "#"
-    },
-    {
-        id: 6,
-        name: "Azure Security Engineer (AZ-500)",
-        credential: "#"
-    },
+    // {
+    //     id: 3,
+    //     name: "Security Fundamentals (SC-900)",
+    //     credential: "#"
+    // },
+    // {
+    //     id: 4,
+    //     name: "Azure Developer Associate (AZ-204)",
+    //     credential: "#"
+    // },
+    // {
+    //     id: 5,
+    //     name: "Devops Designer (AZ-400)",
+    //     credential: "#"
+    // },
+    // {
+    //     id: 6,
+    //     name: "Azure Security Engineer (AZ-500)",
+    //     credential: "#"
+    // },
 ]
