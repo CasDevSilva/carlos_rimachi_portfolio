@@ -43,7 +43,7 @@ const Contact = () => {
                 <motion.a
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.2 }}
-                    href='/assets/docs/CV_CarlosRimachi.pdf'
+                    href='/assets/docs/CV_Carlos_Rimachi_Silva.pdf'
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Currículum Vitae"
