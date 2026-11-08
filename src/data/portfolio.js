@@ -5,7 +5,7 @@ export const email_data = "sca.dev.silva@gmail.com"
 
 export const links_data = {
     linkedin: "https://www.linkedin.com/in/carlos-alberto-rimachi-silva-365839258/",
-    github: "https://github.com/CasDevSilva",
+    github: "https://github.com/zyrrex",
     cv: "/assets/docs/CV_Carlos_Rimachi_Silva.pdf",
     recommendation: "/assets/docs/Carta_recomendacion_CarlosRimachi.pdf",
 }
@@ -17,8 +17,7 @@ export const about_data = {
 // Cifras de cabecera: solo datos verificables.
 export const facts_data = [
     { id: 1, value: "+3", label: "años de experiencia" },
-    { id: 2, value: "30+", label: "módulos desplegados" },
-    { id: 3, value: "4", label: "paquetes en npm" },
+    { id: 2, value: "4", label: "paquetes en npm" },
 ]
 
 export const experience_data = [
@@ -31,7 +30,7 @@ export const experience_data = [
         highlights: [
             {
                 title: "Alcance",
-                text: "Más de 30 módulos desplegados entre el ERP, la plataforma interna y las aplicaciones para asociados, del modelado en Oracle a la interfaz web y móvil. Entre ellos, ASOX (Spring Boot y Flutter) y un motor de comisiones con reglas configurables.",
+                text: "Módulos desplegados en el ERP, la plataforma interna y las aplicaciones para asociados, del modelado en Oracle a la interfaz web y móvil. Entre ellos, ASOX (Spring Boot y Flutter) y un motor de comisiones con reglas configurables.",
             },
             {
                 title: "Arquitectura y datos",
