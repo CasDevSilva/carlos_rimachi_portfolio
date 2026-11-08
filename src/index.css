@@ -1,41 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-    --primary-color: #75ABBC;
-    --secondary-color: #DFE0E2;
-    --success-color: #23B5D3;
-    --dark-color: #071013;
-    --light-color: #FDFDFF;
+@theme {
+    --font-title: "Rammetto One", sans-serif;
+    --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
 }
 
-.bg_primary {
-    background: var(--dark-color);
+/* Tema oscuro minimalista: se sobreescriben los tokens de HeroUI */
+:root,
+.dark,
+[data-theme="dark"] {
+    color-scheme: dark;
+    --background: #071013;
+    --foreground: #fdfdff;
+    --muted: #8a9aa0;
+    --accent: #75abbc;
+    --accent-foreground: #071013;
+    --surface: #0c171b;
+    --surface-secondary: #101f24;
+    --surface-tertiary: #15272d;
+    --overlay: #0c171b;
+    --border: #1c2d33;
+    --focus: #75abbc;
+    --link: #75abbc;
 }
 
-.text_light {
-    color: var(--light-color);
+html {
+    scroll-behavior: smooth;
 }
 
-.text-primary{
-    color: var(--primary-color);
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
 }
 
-.text-secondary{
-    color: var(--secondary-color);
+::selection {
+    background: color-mix(in oklab, var(--accent) 35%, transparent);
 }
 
-.font-title {
-    font-family: "Rammetto One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.font-content {
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

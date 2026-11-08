@@ -1,30 +1,25 @@
-import React from 'react'
 import Hero from './components/Hero'
-import About from './components/About'
-import Experiencie from './components/Experiencie'
-import AppGrid from './components/AppGrid'
-import { projects_data } from './data/portfolio'
-import Certifications from './components/Certifications'
+import Experience from './components/Experience'
+import Packages from './components/Packages'
+import Skills from './components/Skills'
+import Education from './components/Education'
+import Footer from './components/Footer'
+import Spotlight from './components/ui/Spotlight'
+import ScrollProgress from './components/ui/ScrollProgress'
 
-const App = () => {
-  return (
-    <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-40 flex flex-col gap-8 md:gap-10 lg:gap-12">
-        <Hero/>
-        <AppGrid
-          title="Aplicaciones"
-          projects={projects_data.mvps}
-          columns="lg:grid-cols-4"
-        />
-        <AppGrid
-          title="Herramientas"
-          projects={projects_data.tools}
-          columns="lg:grid-cols-3"
-        />
-        <Certifications/>
-        <Experiencie/>
-        <About/>
-    </div>
-  )
-}
+const App = () => (
+    <>
+        <ScrollProgress />
+        <Spotlight />
+        <main className="relative z-10 mx-auto flex max-w-3xl flex-col gap-20 px-6 md:gap-24 md:px-8">
+            <Hero />
+            <Experience />
+            <Packages />
+            <Skills />
+            <Education />
+            <Footer />
+        </main>
+    </>
+)
 
 export default App
