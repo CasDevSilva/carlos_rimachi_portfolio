@@ -11,8 +11,15 @@ export const links_data = {
 }
 
 export const about_data = {
-    intro: "Diseño y construyo sistemas empresariales de la base de datos a la app móvil. Oracle, Java y JavaScript como base, con IA para acelerar la entrega.",
+    intro: "Mi fuerte es la lógica de negocio y los datos: SQL y PL/SQL avanzados, backend en Java y JavaScript, y llevar un requerimiento del análisis al despliegue. Acelero la entrega con IA.",
 }
+
+// Cifras de cabecera: solo datos verificables.
+export const facts_data = [
+    { id: 1, value: "+3", label: "años de experiencia" },
+    { id: 2, value: "30+", label: "módulos desplegados" },
+    { id: 3, value: "4", label: "paquetes en npm" },
+]
 
 export const experience_data = [
     {
@@ -20,34 +27,32 @@ export const experience_data = [
         position: "Analista de Sistemas Empresariales",
         company: "Fonbienes Perú EAFC S.A.",
         time: "Enero 2026 – Presente",
-        stack: ["Oracle 19c", "PL/SQL", "Java 21", "Spring Boot", "Flutter", "Docker"],
+        stack: ["Oracle 19c", "PL/SQL", "Java 21", "Spring Boot", "JSP", "Flutter", "Docker"],
         highlights: [
             {
-                title: "ASOX · plataforma para asociados",
-                text: "Reemplazo del sistema legacy JSP/Servlet: backend Spring Boot 3 con la lógica en packages Oracle, autenticación JWT y app móvil en Flutter (Clean Architecture + BLoC). Módulos de Auth, Adjudicaciones, Remates, Citas y Contratos.",
+                title: "Alcance",
+                text: "Más de 30 módulos desplegados entre el ERP, la plataforma interna y las aplicaciones para asociados, del modelado en Oracle a la interfaz web y móvil. Entre ellos, ASOX (Spring Boot y Flutter) y un motor de comisiones con reglas configurables.",
             },
             {
-                title: "Motor de comisiones configurable",
-                text: "Reglas parametrizables que administra el área de negocio sin intervención de desarrollo: condiciones AND/OR, escalas por tramos y simulación en memoria. Corrección de 257 registros históricos.",
-            },
-            {
-                title: "Riesgos y cumplimiento SMV",
-                text: "Diseño de una plataforma multimódulo de gestión de riesgos alineada a las resoluciones SMV R.027-2016 y R.008-2017, con modelado de datos en Oracle.",
+                title: "Arquitectura y datos",
+                text: "Modelado Oracle y lógica en PL/SQL con reglas parametrizables que el área de negocio administra sin intervención de desarrollo, capas reutilizables entre módulos y diseño alineado a la normativa SMV.",
             },
             {
                 title: "Integraciones",
                 text: "Diseño de la recaudación multibanco (Scotiabank ISO 8583, BCP REST) con idempotencia ante doble cobro. Firma digital con Certezia operativa en desarrollo.",
             },
             {
-                title: "Legacy, calidad y despliegue",
-                text: "Ingeniería inversa de +3,000 objetos Oracle, corrección de 32 OC con aprobadores desfasados, organigrama con Cytoscape.js y despliegue con Docker/Podman en Rocky Linux 9.",
+                title: "Legacy y despliegue",
+                text: "Ingeniería inversa de +3,000 objetos Oracle, auditoría y corrección de datos en producción, y despliegue con Docker y Podman en Rocky Linux 9 con flujo GitLab.",
             },
         ],
     },
     {
         id: 2,
         position: "Ingeniero de Software y Desarrollador Fullstack",
+        company: "Deister Software Perú",
         time: "Enero 2024 – Diciembre 2025",
+        stack: ["PL/SQL", "SQL", "JavaScript", "Java", "Git"],
         highlights: [
             {
                 text: "Diseño e implementación desde cero de un Warehouse Management System: tablas, procedures, triggers y lógica de negocio.",
@@ -59,8 +64,10 @@ export const experience_data = [
     },
     {
         id: 3,
-        position: "Pasantía en Barcelona · Migración y Optimización de Backend",
+        position: "Pasantía · Migración y Optimización de Backend",
+        company: "Deister Software BCN",
         time: "Septiembre 2023 – Diciembre 2023",
+        stack: ["Java", "JavaScript", "XML", "REST", "SQL"],
         highlights: [
             {
                 text: "Migración de ERP (Synlab/FedeFarma): transcripción de lógica XML a JavaScript y optimización de backend Java/APIs REST.",
@@ -73,7 +80,9 @@ export const experience_data = [
     {
         id: 4,
         position: "Analista Programador y Soporte de Producción",
+        company: "Deister Software Perú",
         time: "Febrero 2023 – Septiembre 2023",
+        stack: ["SQL", "PL/SQL", "JavaScript"],
         highlights: [
             {
                 text: "Soporte directo a clientes (Bonpreu), nuevos requerimientos, y triggers y procedures para datos de alto volumen.",

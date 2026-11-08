@@ -14,8 +14,7 @@ const Experience = () => (
                                 <span className="flex flex-1 flex-col gap-1 text-left">
                                     <span className="text-base font-medium text-foreground md:text-lg">{exp.position}</span>
                                     <span className="text-sm text-muted">
-                                        {exp.company ? `${exp.company} · ` : ''}
-                                        {exp.time}
+                                        <span className="text-foreground/80">{exp.company}</span> · {exp.time}
                                     </span>
                                 </span>
                                 <Accordion.Indicator />

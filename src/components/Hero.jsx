@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { buttonVariants, useOverlayState } from '@heroui/react'
 import { Award, FileText, Github, Linkedin, QrCode } from 'lucide-react'
-import { about_data, links_data, location_data, name_data, role_data } from '../data/portfolio'
+import { about_data, facts_data, links_data, location_data, name_data, role_data } from '../data/portfolio'
 import CopyEmail from './CopyEmail'
 import QRModal from './QRModal'
 import IconLink from './ui/IconLink'
@@ -26,7 +26,7 @@ const Hero = () => {
                 {role_data} · {location_data}
             </motion.p>
 
-            <h1 className="font-title text-4xl leading-[1.1] sm:text-5xl md:text-6xl">
+            <h1 className="font-title text-4xl leading-[1.1] text-balance sm:text-5xl md:text-6xl">
                 {words.map((word, i) => (
                     <span key={word} className="inline-block overflow-hidden pb-1 pr-[0.25em] align-bottom">
                         <motion.span
@@ -80,6 +80,15 @@ const Hero = () => {
                     </button>
                 </div>
             </motion.div>
+
+            <motion.dl {...fade(0.9)} className="flex flex-wrap gap-x-10 gap-y-4 pt-4">
+                {facts_data.map((fact) => (
+                    <div key={fact.id} className="flex flex-col">
+                        <dt className="font-title text-2xl text-accent">{fact.value}</dt>
+                        <dd className="text-sm text-muted">{fact.label}</dd>
+                    </div>
+                ))}
+            </motion.dl>
 
             <QRModal state={qrState} />
         </header>
